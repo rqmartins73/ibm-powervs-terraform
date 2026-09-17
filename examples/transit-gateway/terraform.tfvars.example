@@ -1,0 +1,13 @@
+# Copy to terraform.tfvars and fill in your own values. Never commit
+# terraform.tfvars — it is gitignored by default.
+#
+# ibmcloud_api_key is intentionally not set here: export it as
+# TF_VAR_ibmcloud_api_key, or let IBM Cloud Schematics inject it, instead
+# of writing a credential to disk.
+
+region                 = "eu-de"
+resource_group_id      = "00000000000000000000000000000000"
+gateway_name           = "example-transit-gateway"
+location               = "eu-de"
+vpc_crn                = "crn:v1:bluemix:public:is:eu-de:a/00000000000000000000000000000000::vpc:00000000-0000-0000-0000-000000000000"
+powervs_workspace_crn  = "crn:v1:bluemix:public:power-iaas:eu-de:a/00000000000000000000000000000000:00000000-0000-0000-0000-000000000000::"
