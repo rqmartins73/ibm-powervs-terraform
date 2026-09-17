@@ -1,0 +1,11 @@
+# Copy to terraform.tfvars and fill in your own values. Never commit
+# terraform.tfvars — it is gitignored by default.
+#
+# ibmcloud_api_key is intentionally not set here: export it as
+# TF_VAR_ibmcloud_api_key, or let IBM Cloud Schematics inject it, instead
+# of writing a credential to disk.
+
+region                    = "eu-de"
+zone                      = "eu-de-1"
+pi_cloud_instance_id      = "00000000-0000-0000-0000-000000000000"
+existing_lpar_instance_id = "00000000-0000-0000-0000-000000000000"
