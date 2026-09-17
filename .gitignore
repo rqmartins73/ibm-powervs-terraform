@@ -27,9 +27,12 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-# Ignore the provider dependency lock file per module/example
+# The provider lock file is COMMITTED for the examples (they are what people actually run, and the
+# lock is the only place that records the provider version a run really used) and ignored everywhere
+# else: a module must not pin the provider for the configuration that consumes it.
 # (root callers should generate and commit their own)
 .terraform.lock.hcl
+!examples/*/.terraform.lock.hcl
 
 # Ignore Mac system files
 .DS_Store
