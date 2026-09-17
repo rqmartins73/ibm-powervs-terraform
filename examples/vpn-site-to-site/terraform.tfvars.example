@@ -1,0 +1,14 @@
+# Copy to terraform.tfvars and fill in your own values. Never commit
+# terraform.tfvars — it is gitignored by default.
+#
+# ibmcloud_api_key and preshared_key are intentionally not set here: export
+# TF_VAR_ibmcloud_api_key / TF_VAR_preshared_key, or let IBM Cloud
+# Schematics inject them, instead of writing secrets to disk.
+
+region                = "eu-de"
+resource_group_id     = "00000000000000000000000000000000"
+vpc_subnet_id         = "0000-00000000-0000-0000-0000-000000000000"
+gateway_name          = "example-vpn-gateway"
+vpc_cidr              = "10.60.0.0/16"
+peer_gateway_address  = "203.0.113.10"
+peer_cidr             = "192.168.0.0/16"
