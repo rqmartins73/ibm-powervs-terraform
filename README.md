@@ -12,6 +12,10 @@ to whoever runs it.
 |---|---|
 | [`modules/powervs-workspace`](modules/powervs-workspace) | Creates a PowerVS workspace in a region/zone/resource group, with its plan, SSH key and subnets. |
 | [`modules/powervs-lpar`](modules/powervs-lpar) | Deploys an LPAR into an existing workspace: image, processors, memory, storage tier, volumes, networks, SSH key, and AIX/IBM i/Linux specifics. |
+| [`modules/powervs-network`](modules/powervs-network) | Subnets in an existing workspace (private and public VLANs), gateway, DNS, MTU, and attaching a network to an LPAR. |
+| [`modules/transit-gateway`](modules/transit-gateway) | A Transit Gateway with its PowerVS and VPC connections; connection status is an output. |
+| [`modules/vpn-site-to-site`](modules/vpn-site-to-site) | VPC site-to-site VPN: gateway, connections, IKE and IPsec policies, local and peer CIDRs. Client-to-site is out of scope. |
+| [`modules/vpe`](modules/vpe) | Virtual Private Endpoint gateways so a workspace reaches IBM services privately; COS is the worked example. |
 
 `powervs-workspace` comes first: its `workspace_guid` and `subnet_ids`
 outputs are what `powervs-lpar` (and anything else built into this
