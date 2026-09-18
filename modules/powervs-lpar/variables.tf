@@ -177,6 +177,32 @@ variable "volumes" {
   }
 }
 
+variable "existing_volume_ids" {
+  description = <<-EOT
+    IDs of volumes that ALREADY EXIST in this workspace and should be attached
+    to the LPAR, in addition to anything var.volumes creates. Attached with
+    ibm_pi_volume_attach; nothing here is ever created, resized or deleted by
+    this module, so removing an ID detaches the volume and leaves it in place.
+
+    IBM Cloud only attaches a volume that lives in the SAME STORAGE POOL as the
+    LPAR's own boot volume, and refuses with a 409 naming both when it does not.
+    This module cannot check that before the apply - pick IDs from the LPAR's
+    own pool.
+  EOT
+  type        = list(string)
+  default     = []
+
+  validation {
+    condition     = length(var.existing_volume_ids) == length(distinct(var.existing_volume_ids))
+    error_message = "existing_volume_ids must not repeat the same volume ID."
+  }
+
+  validation {
+    condition     = alltrue([for id in var.existing_volume_ids : trimspace(id) != ""])
+    error_message = "each entry of existing_volume_ids must be a non-empty volume ID."
+  }
+}
+
 variable "user_data" {
   description = "cloud-init user data to pass to the instance during creation (plain text or base64). Leave null for none."
   type        = string

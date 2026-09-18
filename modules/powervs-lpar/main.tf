@@ -60,3 +60,13 @@ resource "ibm_pi_volume_attach" "data" {
   pi_instance_id       = ibm_pi_instance.lpar.instance_id
   pi_volume_id         = ibm_pi_volume.data[each.key].volume_id
 }
+
+# Volumes that already exist in the workspace. Attached only - never created
+# here, so a Terraform destroy detaches them and leaves the data in place.
+resource "ibm_pi_volume_attach" "existing" {
+  for_each = toset(var.existing_volume_ids)
+
+  pi_cloud_instance_id = var.pi_cloud_instance_id
+  pi_instance_id       = ibm_pi_instance.lpar.instance_id
+  pi_volume_id         = each.value
+}

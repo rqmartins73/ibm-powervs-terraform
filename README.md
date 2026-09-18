@@ -11,7 +11,7 @@ to whoever runs it.
 | Module | Purpose |
 |---|---|
 | [`modules/powervs-workspace`](modules/powervs-workspace) | Creates a PowerVS workspace in a region/zone/resource group, with its plan, SSH key and subnets. |
-| [`modules/powervs-lpar`](modules/powervs-lpar) | Deploys an LPAR into an existing workspace: image, processors, memory, storage tier, volumes, networks, SSH key, and AIX/IBM i/Linux specifics. |
+| [`modules/powervs-lpar`](modules/powervs-lpar) | Deploys an LPAR into an existing workspace: image, processors, memory, storage tier, new data volumes, already-existing volumes to attach, networks, SSH key, and AIX/IBM i/Linux specifics. |
 | [`modules/powervs-network`](modules/powervs-network) | Subnets in an existing workspace (private and public VLANs), gateway, DNS, MTU, and attaching a network to an LPAR. |
 | [`modules/transit-gateway`](modules/transit-gateway) | A Transit Gateway with its PowerVS and VPC connections; connection status is an output. |
 | [`modules/vpn-site-to-site`](modules/vpn-site-to-site) | VPC site-to-site VPN: gateway, connections, IKE and IPsec policies, local and peer CIDRs. Client-to-site is out of scope. |

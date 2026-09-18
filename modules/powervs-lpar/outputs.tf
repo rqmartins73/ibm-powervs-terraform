@@ -32,3 +32,8 @@ output "volume_ids" {
   description = "Map of data volume name to volume ID for the volumes this module created and attached."
   value       = { for k, v in ibm_pi_volume.data : k => v.volume_id }
 }
+
+output "attached_existing_volume_ids" {
+  description = "IDs of the already-existing volumes this module attached to the LPAR. It creates none of them."
+  value       = [for a in ibm_pi_volume_attach.existing : a.pi_volume_id]
+}
